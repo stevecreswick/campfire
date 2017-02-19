@@ -27,28 +27,41 @@ const common = merge(
       path: PATHS.build,
       filename: '[name].js'
     },
+    module: {
+      loaders: [
+        {
+          test: /\.html$/,
+          loader: 'html-loader'
+          // loader: 'ngtemplate?relativeTo=' + (path.resolve(__dirname, './app')) + '/!html'
+        }
+      ]
+    },
     plugins: [
       new FriendlyErrorsWebpackPlugin(),
-      new HtmlWebpackPlugin({
-        title: 'Webpack demo'
-      })
+      new HtmlWebpackPlugin( {
+        title: 'Webpack demo',
+        template: 'index.ejs'
+      } )
     ]
   }
 );
 
 
 module.exports = function( env ) {
-  console.log( env );
+  console.log( 'Environment: ', env );
 
   if ( env === 'production' ) {
     return merge(
       common,
-      parts.extractCSS()
+      // parts.htmlLoader(),
+      parts.extractCSS(),
+      parts.purifyCSS( PATHS.app )
     );
   }
 
   return merge(
     common,
+    // parts.htmlLoader(),
     {
       // Disable performance hints during development
       performance: {

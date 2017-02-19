@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="campfire">
+  <head>
+    <meta charset="utf-8">
+    <title>Campfire</title>
+    <base href='/'>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body ng-controller="ApplicationController">
+    <!-- <div ng-if="!loggerIn" class=""> -->
+    <!-- </div> -->
+    <!-- <div ng-if="loggedIn" class=""> -->
+      <div navbar></div>
+      <div login></div>
+      <div ng-view></div>
+    <!-- </div> -->
+  </body>
+</html>

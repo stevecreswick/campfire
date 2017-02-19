@@ -1,21 +1,24 @@
-import component from './component';
-import './styles/main.scss';
+//Application
+require( './javascripts/application.js' );
 
-let demoComponent = component();
+// Controllers
+require( './javascripts/controllers/application_controller' );
 
-document.body.appendChild( demoComponent );
+// Directives
 
-// HMR interface
-if( module.hot ) {
-  // Capture hot update
-  module.hot.accept( './component', () => {
-    // We have to go through CommonJS here and capture the
-    // default export explicitly!
-    const nextComponent = require( './component' ).default();
+// Services
 
-    // Replace old content with the hot loaded one
-    document.body.replaceChild( nextComponent, demoComponent );
+// Components
 
-    demoComponent = nextComponent;
-  });
-}
+  // Login
+  require( './javascripts/components/login/session.service' );
+  require( './javascripts/components/login/login.directive' );
+  require( './javascripts/components/login/login.controller' );
+
+  // Navigation Bar
+  require( './javascripts/components/navigation/navbar.directive' );
+  require( './javascripts/components/navigation/navbar.controller' );
+
+
+// Styles
+require( './styles/main.scss' );

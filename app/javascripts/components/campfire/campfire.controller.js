@@ -3,7 +3,6 @@ export default angular.module( 'campfire' ).controller(
   [
     '$scope', '$rootScope',
     function( $scope, $rootScope ) {
-      console.log('campfire controller');
     }
   ]
 );

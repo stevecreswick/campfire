@@ -15,7 +15,7 @@ export default angular.module('campfire').controller(
         );
       };
 
-      $scope.formSubmit = function() {
+      $scope.loginSubmit = function() {
         var loginInfo = {
           username: $scope.username,
           password: $scope.password

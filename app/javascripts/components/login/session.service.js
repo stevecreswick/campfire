@@ -1,8 +1,8 @@
 export default angular.module( 'campfire' ).factory(
   'Session',
   [
-    '$http', '$q', '$cookies',
-    function( $http, $q, $cookies ) {
+    '$http', '$q',
+    function( $http, $q ) {
         var Session = function( baseUrl ) {
           this.url = baseUrl || 'http://localhost:3000';
         }
@@ -17,11 +17,9 @@ export default angular.module( 'campfire' ).factory(
            } ).then(
              function( success ) {
                deferred.resolve( success );
-               console.log('success ', success);
              },
              function( error ) {
                deferred.reject( error );
-               console.log('error ', error);
              }
            );
 

@@ -3,7 +3,7 @@ export default angular.module( 'campfire' ).controller(
   [
     '$scope', '$rootScope', '$cookies', 'Session',
     function( $scope, $rootScope, $cookies, Session ) {
-      $rootScope.currentUser = {};
+      $rootScope.currentUser = null;
 
       const authToken = $cookies.get( 'auth_token' );
 
@@ -16,6 +16,11 @@ export default angular.module( 'campfire' ).controller(
             console.log( error );
           }
         )
+      }
+
+      $rootScope.logout = function() {
+        $rootScope.currentUser = null;
+        $cookies.remove( 'auth_token' );
       }
     }
   ]

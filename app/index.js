@@ -1,24 +1,17 @@
-//Application
-require( './javascripts/application.js' );
+// Require All Javascripts
+require.context( './javascripts', true, /^\.\/.*\.js$/).keys().map(
+  require.context(
+    './javascripts',
+    true,
+    /^\.\/.*\.js$/
+  )
+);
 
-// Controllers
-require( './javascripts/controllers/application_controller' );
-
-// Directives
-
-// Services
-
-// Components
-
-  // Login
-  require( './javascripts/components/login/session.service' );
-  require( './javascripts/components/login/login.directive' );
-  require( './javascripts/components/login/login.controller' );
-
-  // Navigation Bar
-  require( './javascripts/components/navigation/navbar.directive' );
-  require( './javascripts/components/navigation/navbar.controller' );
-
-
-// Styles
-require( './styles/main.scss' );
+// Require All Styles
+require.context( './styles', true, /^\.\/.*\.scss$/).keys().map(
+  require.context(
+    './styles',
+    true,
+    /^\.\/.*\.scss$/
+  )
+);

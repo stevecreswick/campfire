@@ -1,13 +1,13 @@
-import navbarTemplate from 'html-loader!./navbar.template.html'
+import campfireTemplate from 'html-loader!./campfire.view.html'
 
 export default angular.module( 'campfire' ).directive(
-  'navbar',
+  'campfire',
   [
     function() {
       return {
         restrict: 'E',
-        template: navbarTemplate,
-        controller: 'NavbarController',
+        template: campfireTemplate,
+        controller: 'CampfireController',
         link: function( scope, element, attrs ) {
 
         }

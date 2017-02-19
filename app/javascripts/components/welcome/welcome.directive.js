@@ -1,13 +1,13 @@
-import navbarTemplate from 'html-loader!./navbar.template.html'
+import welcomeTemplate from 'html-loader!./welcome.view.html'
 
 export default angular.module( 'campfire' ).directive(
-  'navbar',
+  'welcome',
   [
     function() {
       return {
         restrict: 'E',
-        template: navbarTemplate,
-        controller: 'NavbarController',
+        template: welcomeTemplate,
+        controller: 'WelcomeController',
         link: function( scope, element, attrs ) {
 
         }

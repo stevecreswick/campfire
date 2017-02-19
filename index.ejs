@@ -7,12 +7,7 @@
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body ng-controller="ApplicationController">
-    <!-- <div ng-if="!loggerIn" class=""> -->
-    <!-- </div> -->
-    <!-- <div ng-if="loggedIn" class=""> -->
-      <div navbar></div>
-      <div login></div>
-      <div ng-view></div>
-    <!-- </div> -->
+    <navbar ng-if="currentUser"></navbar>
+    <ng-view></ng-view>
   </body>
 </html>

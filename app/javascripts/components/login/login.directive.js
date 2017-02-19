@@ -5,7 +5,7 @@ export default angular.module( 'campfire' ).directive(
   [
     function() {
       return {
-        restrict: 'A',
+        restrict: 'E',
         template: loginTemplate,
         controller: 'LoginController',
         link: function( scope, element, attrs ) {

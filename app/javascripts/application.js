@@ -2,7 +2,7 @@ import angular from 'angular'
 import ngRoute from 'angular-route'
 import ngCookies from 'angular-cookies'
 
-import homeTemplate from 'html-loader!./templates/home.html'
+import indexTemplate from 'html-loader!./../index.html'
 import showTemplate from 'html-loader!./templates/show.html'
 import loginTemplate from 'html-loader!./components/login/login.view.html'
 
@@ -13,7 +13,7 @@ export default angular.module( 'campfire', [ ngRoute, ngCookies ] )
       $routeProvider.when(
         '/',
         {
-          template: homeTemplate
+          template: indexTemplate
         }
       );
 

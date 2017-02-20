@@ -4,7 +4,6 @@ import ngCookies from 'angular-cookies'
 
 import indexTemplate from 'html-loader!./../index.html'
 import showTemplate from 'html-loader!./templates/show.html'
-import loginTemplate from 'html-loader!./components/login/login.view.html'
 
 export default angular.module( 'campfire', [ ngRoute, ngCookies ] )
 .config( [
@@ -17,12 +16,12 @@ export default angular.module( 'campfire', [ ngRoute, ngCookies ] )
         }
       );
 
-      // $routeProvider.when(
-      //   '/login',
-      //   {
-      //     template: loginTemplate
-      //   }
-      // );
+      $routeProvider.when(
+        '/stories/:story_id',
+        {
+          template: showTemplate
+        }
+      );
 
       $routeProvider.otherwise( {
         template: showTemplate

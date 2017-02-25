@@ -7,8 +7,8 @@ const parts = require('./webpack.parts');
 
 
 const PATHS = {
-  app: path.join(__dirname, 'app'),
-  build: path.join(__dirname, 'build')
+  app: path.join( __dirname, 'app' ),
+  build: path.join( __dirname, 'build' )
 };
 
 const common = merge(
@@ -39,7 +39,7 @@ const common = merge(
     plugins: [
       new FriendlyErrorsWebpackPlugin(),
       new HtmlWebpackPlugin( {
-        title: 'Webpack demo',
+        title: 'Campfire',
         template: 'index.ejs'
       } )
     ]

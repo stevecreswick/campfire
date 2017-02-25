@@ -57,7 +57,7 @@ exports.setupCSS = function( paths ) {
   };
 };
 
-exports.loadCSS = function(paths) {
+exports.loadCSS = function( paths ) {
   return {
     module: {
       rules: [

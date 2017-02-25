@@ -1,3 +1,5 @@
+// File Index
+
 // Require All Javascripts
 require.context( './javascripts', true, /^\.\/.*\.js$/).keys().map(
   require.context(

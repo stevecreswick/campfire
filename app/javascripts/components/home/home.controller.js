@@ -1,5 +1,5 @@
 export default angular.module( 'campfire' ).controller(
-  'CampfireController',
+  'HomeController',
   [
     '$scope', '$rootScope',
     function( $scope, $rootScope ) {

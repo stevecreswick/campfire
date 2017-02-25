@@ -1,13 +1,13 @@
-import campfireTemplate from 'html-loader!./campfire.view.html'
+import homeTemplate from 'html-loader!./home.view.html'
 
 export default angular.module( 'campfire' ).directive(
-  'campfire',
+  'home',
   [
     function() {
       return {
         restrict: 'E',
-        template: campfireTemplate,
-        controller: 'CampfireController',
+        template: homeTemplate,
+        controller: 'HomeController',
         link: function( scope, element, attrs ) {
 
         }

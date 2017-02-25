@@ -1,0 +1,13 @@
+<div ng-controller="WritingController">
+  <h1>new post</h1>
+
+  <h2>New</h2>
+  <a href="/new">
+    <h3>Create a new story</h3>
+  </a>
+
+  <h2>Edit</h2>
+  <div ng-if="currentUser" ng-repeat="story in userStories">
+    {{ story.title }}
+  </div>
+</div>

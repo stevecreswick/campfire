@@ -1,22 +1,24 @@
 export default angular.module( 'campfire' ).controller(
   'NewStoryController',
   [
-    '$scope', '$rootScope', 'StoryFeed', '$q',
-    function( $scope, $rootScope, StoryFeed, $q ) {
-      $scope.newStory = {
-        'user_id': $rootScope.currentUser.id
-      };
+    '$scope', '$rootScope', 'StoryFeed', '$location',
+    function( $scope, $rootScope, StoryFeed, $location ) {
+      $scope.newStory = {};
 
       $scope.createNewStory = function() {
+        $scope.newStory[ 'user_id' ] = $rootScope.currentUser.id;
+
         StoryFeed.createStory( $scope.newStory ).then(
           function( success ){
-            console.log('success');
-            console.log(success.data.id);
-            // $location.path( '/users');
-            // Redirect to the edit page for the story
+            const storyId           = success.data.id,
+                  editStoryRedirect = '/' + $rootScope.currentUser.username +
+                                      '/' + storyId +
+                                      '/edit';
+
+            $location.path( editStoryRedirect );
           },
           function( error ) {
-            console.log('error');
+            console.log('error creating new story');
           }
         );
       };

@@ -6,8 +6,7 @@ import ngInfiniteScroll from 'ng-infinite-scroll'
 import indexTemplate from 'html-loader!./../index.html'
 import showTemplate from 'html-loader!./templates/show.html'
 import writingTemplate from 'html-loader!./templates/write.html'
-import newStoryTemplate from 'html-loader!./templates/new.html'
-
+import editStoryTemplate from 'html-loader!./templates/edit.html'
 
 export default angular.module( 'campfire', [ ngRoute, ngCookies, ngInfiniteScroll ] )
 .config( [
@@ -35,9 +34,9 @@ export default angular.module( 'campfire', [ ngRoute, ngCookies, ngInfiniteScrol
       );
 
       $routeProvider.when(
-        '/new',
+        '/:username/:story_id/edit',
         {
-          template: newStoryTemplate
+          template: editStoryTemplate
         }
       );
 

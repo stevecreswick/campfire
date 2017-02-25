@@ -12,7 +12,7 @@ export default angular.module( 'campfire' ).controller(
         function( error ) {
           console.log(error);
         }
-      )
+      );
     }
   ]
 );

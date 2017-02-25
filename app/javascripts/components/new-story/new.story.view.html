@@ -1,6 +1,13 @@
-<h1>New Story</h1>
-<!-- <div class="" ng-repeat="story in stories">
-  <a ng-href="/stories/{{ story.id }}">
-    <h4>{{ story.title }}</h4>
-  </a>
-</div> -->
+<div ng-if="currentUser">
+  <h1>New Story</h1>
+
+  <h3>Title</h3>
+  <input type="text" ng-model="newStory.title" placeholder="A Tale of Two Kitties..."></input>
+
+  <h3>Synopsis</h3>
+  <input type="text" ng-model="newStory.description" placeholder="Description"></input>
+
+  <span>You can change these later.</span>
+
+  <button type="button" name="button" ng-click="createNewStory()"></button>
+</div>

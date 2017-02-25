@@ -12,7 +12,8 @@ export default angular.module( 'campfire' ).factory(
 
            $http( {
              method: 'get',
-             url: this.url + '/stories'
+             url: this.url + '/stories',
+             params: filters
            } ).then(
              function( success ) {
                deferred.resolve( success );
@@ -25,6 +26,7 @@ export default angular.module( 'campfire' ).factory(
           return deferred.promise;
         };
 
+        // Refactor Query So Get Story is not needed
         StoryFeed.prototype.getStory = function( id ) {
           var deferred = $q.defer();
 
@@ -39,6 +41,25 @@ export default angular.module( 'campfire' ).factory(
                deferred.reject( error );
              }
            );
+
+          return deferred.promise;
+        };
+
+        StoryFeed.prototype.createStory = function( newStory ) {
+          var deferred = $q.defer();
+
+          $http( {
+            method: 'post',
+            url: this.url + '/stories',
+            params: newStory
+          } ).then(
+            function( success ) {
+              deferred.resolve( success );
+            },
+            function( error ) {
+              deferred.reject( error );
+            }
+          );
 
           return deferred.promise;
         };

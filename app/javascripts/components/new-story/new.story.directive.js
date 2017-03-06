@@ -10,6 +10,7 @@ export default angular.module( 'campfire' ).directive(
         controller: 'NewStoryController',
         link: function( scope, element, attrs ) {
 
+
         }
       }
     }

@@ -1,21 +1,29 @@
 <div class="story-snippet">
   <!-- if author -->
   <div ng-if="state === 'authoring'">
-    <h5> {{ title }}</h5>
-    <h4>{{ message }}</h4>
-
     <a href="#" ng-click="toggleEdit()">
       Edit
+    </a>
+
+    <h5>{{ $index }}</h5>
+    <h5> {{ plotDevice.title }}</h5>
+    <h4>{{ plotDevice.message }}</h4>
+
+    <a href="#" ng-click="addChild()">Add Child</a>
+
+    <new-plot-device parent-id="{{ plotDevice.id }}" ng-if="addingChild"></new-plot-device>
+
+    <a href="#" ng-if="addingChild" ng-click="addChild()">
+      Cancel
     </a>
   </div>
 
   <!-- if editing  -->
   <div ng-if="state === 'editing'">
     <h1>Editing</h1>
-    <h3>Title</h3>
-    <input type="text" ng-model="snippet.title"></input>
+    <!-- <input type="text" ng-model="snippet.title"></input>
     <h3>Message</h3>
-    <textarea ng-model="snippet.message"></textarea>
+    <textarea ng-model="snippet.message"></textarea> -->
 
     <a ng-click="submitEdit">
       Save

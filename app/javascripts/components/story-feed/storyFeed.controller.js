@@ -3,17 +3,21 @@ export default angular.module( 'campfire' ).controller(
   [
     '$scope', 'StoryFeed',
     function( $scope, StoryFeed ) {
+
+      // Add ability to query by a users post
+      
       StoryFeed.query().then(
         function( success ) {
           $scope.stories = success.data.stories;
-          console.log('storiess');
-          console.log( $scope.stories );
         },
         function( error ) {
-          console.log('stroy err');
-          console.log(error);
+          console.error( 'No data returned for feed.' );
         }
       )
+
+      $scope.query = function() {
+        // Query Function for Infinite Scroll
+      };
     }
   ]
 );

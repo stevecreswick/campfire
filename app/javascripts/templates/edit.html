@@ -2,33 +2,23 @@
   <div ng-if="editingStory" class="">
     Editing: {{ editingStory.title }}
 
-    <div ng-if="storySnippets" ng-repeat="snippet in storySnippets">
-
+    <div ng-repeat="plotDevice in editingStory.plot_devices">
       <div class="story">
-        <story-snippet
-          state="authoring"
-          snippet-id="{{ snippet[ 'plot_device' ].id }}"
-          title="{{ snippet[ 'plot_device' ].title }}"
-          message="{{ snippet[ 'plot_device' ].message }}">
-        <story-snippet>
-
-        <!-- <div ng-if="snippet[ 'child_snippets' ].length > 0" ng-repeat="childSnippet in snippet.child_snippets">
-          <h3>child snippets</h3>
-          {{ childSnippet }}
-        </div> -->
-
-        <!-- <add-snippet parent-id="{{ snippet[ 'plot_device' ].id }}"></add-snippet> -->
+        <plot-device state="authoring"></plot-device>
       </div>
     </div>
 
     <div class="add-snippet">
       <h4>Add Snippet</h4>
       <!-- New -->
-      <a href="#" ng-click="newSnippet()">New</a> | 
+      <a href="#" ng-click="toggleNewSnippet()">New</a> |
       <!-- Written -->
       <a href="#">Written</a>
 
-
+      <new-plot-device ng-if="addingSnippet"></new-plot-device>
+      <a href="#" ng-if="addingSnippet" ng-click="toggleNewSnippet()">
+        Cancel
+      </a>
     </div>
   </div>
 

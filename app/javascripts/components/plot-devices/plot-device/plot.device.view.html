@@ -9,13 +9,13 @@
     <h5> {{ plotDevice.title }}</h5>
     <h4>{{ plotDevice.message }}</h4>
 
-    <a href="#" ng-click="addChild()">Add Child</a>
+    <new-user-input plot-device-id="{{ plotDevice.id }}"></new-user-input>
 
-    <new-plot-device parent-id="{{ plotDevice.id }}" ng-if="addingChild"></new-plot-device>
-
-    <a href="#" ng-if="addingChild" ng-click="addChild()">
+    <!-- <a href="#" ng-click="addChild()">Add Child</a> -->
+    <!-- <new-plot-device parent-id="{{ plotDevice.id }}" ng-if="addingChild"></new-plot-device> -->
+    <!-- <a href="#" ng-if="addingChild" ng-click="addChild()">
       Cancel
-    </a>
+    </a> -->
   </div>
 
   <!-- if editing  -->

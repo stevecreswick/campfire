@@ -28,6 +28,10 @@
     <h5>{{ $index }}</h5>
     <h5> {{ plotDevice.title }}</h5>
     <h4>{{ plotDevice.message }}</h4>
+
+    <div ng-repeat="userInput in plotDevice.user_inputs | limitTo:5">
+      {{ $index + 1 }} - {{ userInput.title }}
+    </div>
   </div>
 
   <!-- if editing  -->

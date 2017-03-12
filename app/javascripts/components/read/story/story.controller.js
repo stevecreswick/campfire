@@ -7,12 +7,19 @@ export default angular.module( 'campfire' ).controller(
       StoryFeed.getStory( $routeParams[ 'story_id' ] ).then(
         function( success ) {
           $scope.story = success.data;
-          console.log( $scope.story );
+
+          if ( $scope.story ) {
+            $scope.plotDeviceDisplayed = [];
+
+            $scope.plotDeviceDisplayed.push( $scope.story.plot_devices[ 0 ] );
+          }
         },
         function( error ) {
           console.log(error);
         }
       );
+
+
     }
   ]
 );

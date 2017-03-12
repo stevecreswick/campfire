@@ -22,6 +22,7 @@ export default angular.module( 'campfire' ).controller(
         if ( !$scope.requireStatRoll ) {
           $scope.newUserInput.passValue = 0;
           $scope.newUserInput[ 'plot_device_id' ] = $scope.plotDevice.id;
+          $scope.newUserInput[ 'success_id' ] = $scope.successDevice.selected.id;
 
           UserInput.createInput( $scope.newUserInput ).then(
             function( success ) {

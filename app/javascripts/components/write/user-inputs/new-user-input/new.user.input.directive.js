@@ -22,7 +22,9 @@ export default angular.module( 'campfire' ).directive(
           };
 
           $rootScope.$on( 'newUserInputCreated', function( event, newUserInput ) {
-            scope.toggleInput();
+            if ( scope.plotDevice.id === newUserInput.plot_device_id ) {
+              scope.toggleInput();
+            }
           } );
         }
       }

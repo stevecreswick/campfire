@@ -1,0 +1,14 @@
+<h1>Story</h1>
+<h3>{{ story.title }}</h3>
+
+<div ng-repeat="plotDevice in plotDeviceDisplayed track by $index">
+  <!-- {{ plotDevice.title }}
+  {{ plotDevice.message }} -->
+  <div class="story">
+    <plot-device state="reading"></plot-device>
+  </div>
+</div>
+
+<!-- Show Title Page -->
+<!-- If there are no user inputs -->
+<!-- Space bar or next button then renders the next plot device -->

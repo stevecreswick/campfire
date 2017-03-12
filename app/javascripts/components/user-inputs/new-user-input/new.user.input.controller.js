@@ -25,9 +25,8 @@ export default angular.module( 'campfire' ).controller(
 
           UserInput.createInput( $scope.newUserInput ).then(
             function( success ) {
-              console.log('success ', success);
-              $rootScope.$broadcast( 'newUserInputCreated', $scope.newUserInput );
-              $scope.$destroy();
+              $rootScope.$broadcast( 'newUserInputCreated', success.data );
+              $scope.newUserInput = {};
             },
             function( error ) {
               console.log('error ', error);

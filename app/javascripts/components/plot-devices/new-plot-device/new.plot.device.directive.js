@@ -10,8 +10,6 @@ export default angular.module( 'campfire' ).directive(
         template: newPlotDeviceTemplate,
         controller: 'NewPlotDeviceController',
         link: function( scope, element, attrs ) {
-          console.log(attrs.parentId);
-
           $rootScope.$on( 'newPlotDeviceCreated', function( event, data ) {
             scope.$destroy();
           } );

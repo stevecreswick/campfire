@@ -13,7 +13,7 @@ export default angular.module( 'campfire' ).directive(
           scope.writing = false;
           scope.previewing = false;
 
-          scope.showInput = function() {
+          scope.toggleInput = function() {
             scope.writing = !scope.writing;
           };
 
@@ -21,13 +21,9 @@ export default angular.module( 'campfire' ).directive(
             scope.previewing = !scope.previewing;
           };
 
-          // $rootScope.$on( 'newPlotDeviceCreated', function( event, data ) {
-          //   scope.$destroy();
-          // } );
-          //
-          // scope.$on( '$destroy', function() {
-          //   element.remove();
-          // } );
+          $rootScope.$on( 'newUserInputCreated', function( event, newUserInput ) {
+            scope.toggleInput();
+          } );
         }
       }
     }

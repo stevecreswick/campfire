@@ -9,6 +9,12 @@
     <h5> {{ plotDevice.title }}</h5>
     <h4>{{ plotDevice.message }}</h4>
 
+    <div ng-repeat="userInput in plotDevice.user_inputs">
+      <h5>
+        {{ userInput.title }}
+      </h5>
+    </div>
+
     <new-user-input plot-device-id="{{ plotDevice.id }}"></new-user-input>
 
     <!-- <a href="#" ng-click="addChild()">Add Child</a> -->

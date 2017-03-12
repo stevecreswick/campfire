@@ -11,8 +11,6 @@ export default angular.module( 'campfire' ).controller(
 
         PlotDevice.createSnippet( $scope.newPlotDevice ).then(
           function( success ) {
-            console.log('success ', success);
-
             $rootScope.$broadcast( 'newPlotDeviceCreated', $scope.newPlotDevice )
             $scope.$destroy();
           },

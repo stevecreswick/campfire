@@ -9,6 +9,7 @@
     <h5> {{ plotDevice.title }}</h5>
     <h4>{{ plotDevice.message }}</h4>
 
+    <h3>User Options</h3>
     <div ng-repeat="userInput in plotDevice.user_inputs">
       <h5>
         {{ userInput.title }}
@@ -29,8 +30,14 @@
     <h5> {{ plotDevice.title }}</h5>
     <h4>{{ plotDevice.message }}</h4>
 
-    <div ng-repeat="userInput in plotDevice.user_inputs | limitTo:5">
-      {{ $index + 1 }} - {{ userInput.title }}
+    <div ng-if="$last">
+      <div ng-repeat="userInput in plotDevice.user_inputs | limitTo:5">
+        <div ng-click="chooseInput( userInput )">
+          <a href="#">
+            {{ $index + 1 }} - {{ userInput.title }}
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 

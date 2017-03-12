@@ -8,42 +8,45 @@ import showTemplate from 'html-loader!./templates/show.html'
 import writingTemplate from 'html-loader!./templates/write.html'
 import editStoryTemplate from 'html-loader!./templates/edit.html'
 
-export default angular.module( 'campfire', [ ngRoute, ngCookies, ngInfiniteScroll ] )
-.config( [
-    '$locationProvider', '$routeProvider', '$httpProvider',
-    function( $locationProvider, $routeProvider, $httpProvider ) {
-      $routeProvider.when(
-        '/',
-        {
-          template: indexTemplate
-        }
-      );
+export default angular.module(
+  'campfire',
+  [ ngRoute, ngCookies, ngInfiniteScroll ] )
+  .config( [
+      '$locationProvider', '$routeProvider', '$httpProvider',
+      function( $locationProvider, $routeProvider, $httpProvider ) {
+        $routeProvider.when(
+          '/',
+          {
+            template: indexTemplate
+          }
+        );
 
-      $routeProvider.when(
-        '/stories/:story_id',
-        {
+        $routeProvider.when(
+          '/stories/:story_id',
+          {
+            template: showTemplate
+          }
+        );
+
+        $routeProvider.when(
+          '/write',
+          {
+            template: writingTemplate
+          }
+        );
+
+        $routeProvider.when(
+          '/:username/:story_id/edit',
+          {
+            template: editStoryTemplate
+          }
+        );
+
+        $routeProvider.otherwise( {
           template: showTemplate
-        }
-      );
+        } );
 
-      $routeProvider.when(
-        '/write',
-        {
-          template: writingTemplate
-        }
-      );
-
-      $routeProvider.when(
-        '/:username/:story_id/edit',
-        {
-          template: editStoryTemplate
-        }
-      );
-
-      $routeProvider.otherwise( {
-        template: showTemplate
-      } );
-
-      $locationProvider.html5Mode( true ).hashPrefix( '!' );
-    }
-]);
+        $locationProvider.html5Mode( true ).hashPrefix( '!' );
+      }
+  ]
+);

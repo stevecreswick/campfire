@@ -1,5 +1,13 @@
 <h1>Story</h1>
 <h3>{{ story.title }}</h3>
+
+<div ng-repeat="plotDevice in story.plot_devices">
+  <!-- {{ plotDevice.title }}
+  {{ plotDevice.message }} -->
+  <div class="story">
+    <plot-device state="reading"></plot-device>
+  </div>
+</div>
 <!-- <div class="" ng-repeat="story in stories">
   <a ng-href="/stories/{{ story.id }}">
     <h4>{{ story.title }}</h4>

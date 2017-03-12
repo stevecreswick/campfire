@@ -24,6 +24,12 @@
     </a> -->
   </div>
 
+  <div ng-if="state === 'reading'">
+    <h5>{{ $index }}</h5>
+    <h5> {{ plotDevice.title }}</h5>
+    <h4>{{ plotDevice.message }}</h4>
+  </div>
+
   <!-- if editing  -->
   <div ng-if="state === 'editing'">
     <h1>Editing</h1>

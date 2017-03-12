@@ -35,14 +35,18 @@ export default angular.module( 'campfire' ).controller(
       };
 
       $document.on( 'keyup', function( event ) {
-        var lastIndex   =   $scope.plotDeviceDisplayed.length - 1,
-            plotDevice  =   $scope.plotDeviceDisplayed[ lastIndex ],
-            inputIndex  =   parseInt( event.key ) - 1;
+        var lastIndex     =   $scope.plotDeviceDisplayed.length - 1,
+            plotDevice    =   $scope.plotDeviceDisplayed[ lastIndex ],
+            inputIndex    =   parseInt( event.key ) - 1;
 
         if ( plotDevice.user_inputs[ inputIndex ] ) {
           $scope.chooseInput( plotDevice.user_inputs[ inputIndex ] );
           $scope.$apply();
         }
+      } );
+
+      $scope.$on( '$destroy', function() {
+        $document.unbind( 'keyup' );
       } );
     }
   ]

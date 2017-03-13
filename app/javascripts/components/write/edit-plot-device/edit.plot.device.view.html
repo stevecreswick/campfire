@@ -1,0 +1,30 @@
+<div class="story-snippet">
+  <div ng-if="state === 'authoring'">
+    <a href="#" ng-click="toggleEdit()">
+      Edit
+    </a>
+
+    <h5>{{ $index }}</h5>
+    <h5> {{ plotDevice.title }}</h5>
+    <h4>{{ plotDevice.message }}</h4>
+
+    <h3>User Options</h3>
+    <div ng-repeat="userInput in plotDevice.user_inputs">
+      <h5>
+        {{ userInput.title }}
+      </h5>
+    </div>
+
+    <new-user-input plot-device-id="{{ plotDevice.id }}"></new-user-input>
+  </div>
+
+  <div ng-if="state === 'editing'">
+    <h1>Editing</h1>
+    <a ng-click="submitEdit">
+      Save
+    </a>
+    <a href="#" ng-click="toggleEdit()">
+      Cancel
+    </a>
+  </div>
+</div>

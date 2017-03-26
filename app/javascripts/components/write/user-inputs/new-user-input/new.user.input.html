@@ -1,7 +1,9 @@
-<div class="new-plot-device">
-  <div ng-click="toggleInput()">
+<div class="new-plot-device" ng-if="successDevices.length > 0">
+  <div ng-if="!writing" ng-click="toggleInput()">
     <h5>
-      {{ writing ? 'Cancel' : 'Add a user input' }}
+      <a href="#">
+        Add a user input
+      </a>
     </h5>
   </div>
 
@@ -22,30 +24,42 @@
     <input type="text" ng-model="newUserInput.successMessage"></input>
 
     <!-- Goes to What Snippet? -->
-    <h5>Jump To:</h5>
-    <!-- Add ability to create a new snippet -->
-    <!-- On Successful Save, Set as the Next Device -->
-    <!-- <input type="text" ng-model="newUserInput.successId"></input> -->
-    <select ng-model="successDevice.selected"
-            ng-options="nextDevice.title for nextDevice in successDevices">
-    </select>
-    <!-- Write a Filter that strips out the current plot device -->
+    <div>
+      <h5>Jump To:</h5>
+      <!-- Add ability to create a new snippet -->
+      <!-- On Successful Save, Set as the Next Device -->
+      <!-- <input type="text" ng-model="newUserInput.successId"></input> -->
+      <select ng-model="successDevice.selected"
+              ng-options="nextDevice.title for nextDevice in successDevices">
+      </select>
+      <!-- Write a Filter that strips out the current plot device -->
 
-    <div ng-click="previewDevice()">
-      <h5>Preview</h5>
+      <div ng-click="previewDevice()">
+        <h5>Preview</h5>
+      </div>
+
+      <div class="preview-plot-device" ng-if="previewing">
+        {{ successDevice.selected.message }}
+      </div>
+
+      <!-- Need to Make Option to add New Input -->
+
+      <!-- Failure -->
+      <!-- <input type="text" ng-model="newUserInput.failureMessage"></input>
+      <input type="text" ng-model="newUserInput.failureId"></input> -->
     </div>
 
-    <div class="preview-plot-device" ng-if="previewing">
-      {{ successDevice.selected.message }}
+    <div ng-if="writing" ng-click="toggleInput()">
+      <a href="#">
+        Cancel
+      </a>
     </div>
-    <!-- Need to Make Option to add New Input -->
-
-    <!-- Failure -->
-    <!-- <input type="text" ng-model="newUserInput.failureMessage"></input>
-    <input type="text" ng-model="newUserInput.failureId"></input> -->
-
     <a href="#" ng-click="createNewUserInput()">
       Save
     </a>
   </div>
+</div>
+
+<div ng-if="successDevices.length < 1">
+  There are no text blocks to send the reader to.
 </div>

@@ -1,5 +1,10 @@
-.story-snippet {
-  background: white;
-  width: 50%;
-  border: 2px solid blue;
+.story {
+  margin-bottom: 30px;
+  
+  .story-snippet {
+    background: white;
+    width: 50%;
+    border: 2px solid blue;
+    margin-bottom: 10px;
+  }
 }

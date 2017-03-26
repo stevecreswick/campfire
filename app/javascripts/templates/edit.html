@@ -1,13 +1,11 @@
 <div ng-if="currentUser" ng-controller="EditStoryController">
   <div ng-if="editingStory" class="">
     Editing: {{ editingStory.title }}
-
-    <div ng-repeat="plotDevice in editingStory.plot_devices">
-      <div class="story">
+    <div class="story">
+      <div ng-repeat="plotDevice in editingStory.plot_devices">
         <edit-plot-device state="authoring"></edit-plot-device>
       </div>
     </div>
-
     <div class="add-snippet">
       <a href="#" ng-click="toggleNewSnippet()">Add A New Text Block</a>
 

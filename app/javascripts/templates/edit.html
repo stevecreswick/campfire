@@ -9,11 +9,7 @@
     </div>
 
     <div class="add-snippet">
-      <h4>Add Snippet</h4>
-      <!-- New -->
-      <a href="#" ng-click="toggleNewSnippet()">New</a> |
-      <!-- Written -->
-      <a href="#">Written</a>
+      <a href="#" ng-click="toggleNewSnippet()">Add A New Text Block</a>
 
       <new-plot-device ng-if="addingSnippet"></new-plot-device>
       <a href="#" ng-if="addingSnippet" ng-click="toggleNewSnippet()">
@@ -21,5 +17,4 @@
       </a>
     </div>
   </div>
-
 </div>

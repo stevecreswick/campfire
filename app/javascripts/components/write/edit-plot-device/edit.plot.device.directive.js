@@ -3,7 +3,8 @@ import editPlotDeviceTemplate from 'html-loader!./edit.plot.device.view.html'
 export default angular.module( 'campfire' ).directive(
   'editPlotDevice',
   [
-    function() {
+    '$rootScope',
+    function( $rootScope ) {
       return {
         restrict: 'E',
         template: editPlotDeviceTemplate,
@@ -17,10 +18,16 @@ export default angular.module( 'campfire' ).directive(
           };
 
           scope.toggleEdit = function() {
-            attrs.state === 'editing' ?
+            scope.state === 'editing' ?
               scope.state = 'authoring' :
               scope.state = 'editing';
           };
+
+          $rootScope.$on( 'plotDeviceUpdated', function( event, updatedDevice ) {
+            if ( updatedDevice.id === scope.plotDevice.id ) {
+              scope.toggleEdit();
+            }
+          } );
         }
       }
     }

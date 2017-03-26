@@ -26,6 +26,26 @@ export default angular.module( 'campfire' ).factory(
           return deferred.promise;
         };
 
+        PlotDevice.prototype.updateDevice = function( updatedDevice ) {
+          var deferred = $q.defer();
+
+          $http( {
+            method: 'PUT',
+            url: this.url + '/plot_devices',
+            params: updatedDevice,
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+          } ).then(
+            function( success ) {
+              deferred.resolve( success );
+            },
+            function( error ) {
+              deferred.reject( error );
+            }
+          );
+
+          return deferred.promise;
+        };
+
         return new PlotDevice;
     }
   ]

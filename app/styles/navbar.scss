@@ -1,5 +1,15 @@
 .navbar {
-  background-color: yellow;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #ef5350;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 64px;
+  margin: 0 -8px;
 
   li {
     display: inline-block;

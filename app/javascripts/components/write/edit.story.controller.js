@@ -22,6 +22,8 @@ export default angular.module( 'campfire' ).controller(
 
       $rootScope.$on( 'newPlotDeviceCreated', function( event, newPlotDevice ) {
         $scope.editingStory.plot_devices.push( newPlotDevice );
+        $scope.toggleNewSnippet();
+        $rootScope.$broadcast( 'runSuccessDevices' );
       } );
     }
   ]

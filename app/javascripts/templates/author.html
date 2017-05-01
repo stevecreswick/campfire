@@ -1,0 +1,76 @@
+<h1>Author</h1>
+<div class="author" ng-controller="AuthorController">
+  <div ng-click="editAuthor()">Edit</div>
+  <div ng-if="!editing" class="author-inner-container">
+    <div class="author-header">
+      <img src="" alt="">
+      <h1>{{ author.username }}</h1>
+      <span>location: {{ author.location }}</span>
+      <div class="quote-container">
+        <h5>Quote: {{ author.profile_quote }}</h5>
+      </div>
+    </div>
+
+    <div class="">
+      Follow
+    </div>
+
+    <div class="about-container">
+      About
+    </div>
+
+    <div class="author-stats">
+      <div class="" ng-click="changeView( 'stories' )">
+        Stories
+      </div>
+      <div class="" ng-click="changeView( 'followers' )">
+        Followers
+      </div>
+      <div class="" ng-click="changeView( 'following' )">
+        Following
+      </div>
+    </div>
+
+    <div class="feed-container">
+      <div class="author-stories" ng-if="showStories">
+        Authors Stories
+
+        <div class="" ng-repeat="story in author.stories">
+          {{ story.title }}
+        </div>
+      </div>
+
+      <div class="" ng-if="showFollowers">
+        Followers List
+      </div>
+
+      <div class="" ng-if="showFollowing">
+        Following List
+      </div>
+    </div>
+
+  </div>
+
+  <div ng-if="editing">
+    <div class="author-header">
+      <img src="" alt="">
+      <h1>profile img</h1>
+      <input type="text" name="" value="" ng-model="editingAuthor.profileImg">
+      <h1>location</h1>
+      <input type="text" name="" value="" ng-model="editingAuthor.location">
+      <div class="quote-container">
+        <h1>quote</h1>
+        <input type="text" name="" value="" ng-model="editingAuthor.profile_quote">
+      </div>
+    </div>
+
+    <div class="about-container">
+      About
+      <textarea name="name" rows="8" cols="80" ng-model="editingAuthor.about"></textarea>
+    </div>
+
+    <div ng-click="submitEditedUser()">
+      Submit
+    </div>
+  </div>
+</div>

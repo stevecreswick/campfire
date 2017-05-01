@@ -1,0 +1,82 @@
+.story-view {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+
+  .story-inner-container {
+    max-width: 900px;
+    margin: 0 auto;
+
+    .story-controls {
+      height: 60px;
+      // background: blue;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+
+      .story-control {
+        padding: 20px;
+        color: #000000;
+        opacity: 0.2;
+        cursor: default;
+
+        &.active {
+          opacity: 1;
+          font-weight: bolder;
+          display: inline-block;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .story-index-count {
+      padding: 20px;
+    }
+
+    .plot-card-container {
+      margin: 0 auto;
+    }
+  }
+}
+
+.plot-card {
+  padding: 40px 20px;
+  min-height: 450px;
+  position: relative;
+  background-color: floralwhite;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+
+  p {
+    margin: 0 20px;
+    padding: 20px;
+    font-size: 1.5rem;
+  }
+}
+
+.input-list {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: absolute;
+  height: 5rem;
+  margin-bottom: 0;
+  padding: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  .user-input {
+    flex: 1;
+    height: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 8px;
+    margin: 0 8px;
+
+    a {
+      font-weight: 800;
+      font-size: 1.5rem;
+    }
+  }
+}

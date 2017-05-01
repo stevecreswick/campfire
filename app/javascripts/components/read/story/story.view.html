@@ -1,11 +1,24 @@
-<h1>Story</h1>
-<h3>{{ story.title }}</h3>
+<div class="story-view">
+  <h1>{{ story.title }}</h1>
 
-<div ng-repeat="plotDevice in plotDeviceDisplayed track by $index">
-  <!-- {{ plotDevice.title }}
-  {{ plotDevice.message }} -->
-  <div class="story">
-    <plot-device state="reading"></plot-device>
+  <div class="story-inner-container">
+    <div class="story-card-container">
+      <plot-card ng-repeat="plotDevice in plotDeviceDisplayed track by $index"
+           ng-show="storyIndex === $index">
+      </plot-card>
+    </div>
+
+    <div class="story-controls">
+      <a href="#" ng-click="previousCard()" class="story-control" ng-class="{ 'active': storyIndex > 0 }">
+        Previous
+      </a>
+      <div class="story-index-count">
+        {{ storyIndex + 1 }} / {{ plotDeviceDisplayed.length }}
+      </div>
+      <a href="#" ng-click="nextCard()" class="story-control" ng-class="{ 'active': storyIndex < plotDeviceDisplayed.length - 1 }">
+        Next
+      </a>
+    </div>
   </div>
 </div>
 

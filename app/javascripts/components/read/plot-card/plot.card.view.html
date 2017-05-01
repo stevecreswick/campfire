@@ -1,0 +1,13 @@
+<div class="plot-card">
+  <p>{{ plotDevice.message }}</p>
+
+  <ul ng-if="$last" class="input-list">
+    <li ng-repeat="userInput in plotDevice.user_inputs | limitTo:5"
+        ng-click="chooseInput( userInput )"
+        class="user-input">
+      <a href="#">
+        {{ $index + 1 }} - {{ userInput.title }}
+      </a>
+    </li>
+  </ul>
+</div>

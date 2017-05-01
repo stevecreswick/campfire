@@ -1,17 +1,40 @@
 <div class="navbar">
-  <h1>
-    <a href="/">
-      Campfire
-    </a>
-  </h1>
-  <div class="">
+  <div class="logo-container">
+    <h1>
+      <a href="/">
+        Campfire
+      </a>
+    </h1>
+  </div>
+  <div class="link-container">
     <ul>
       <li>
-        {{ currentUser.username }}
+        <a href="/write">
+          Your Feed
+        </a>
       </li>
       <li>
         <a href="/write">
+          Top Stories
+        </a>
+      </li>
+      <li>
+        <a href="/authors">
+          Authors
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="user-container">
+    <ul>
+      <li>
+        <a href="/write">
           Write
+        </a>
+      </li>
+      <li>
+        <a href="/authors/{{ currentUser.username }}">
+          {{ currentUser.username }}
         </a>
       </li>
       <li>

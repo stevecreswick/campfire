@@ -4,6 +4,8 @@ export default angular.module( 'campfire' ).controller(
     '$scope', 'StoryFeed', '$routeParams', '$filter', '$document',
     function( $scope, StoryFeed, $routeParams, $filter, $document ) {
 
+      $scope.storyIndex = 0;
+
       StoryFeed.getStory( $routeParams[ 'story_id' ] ).then(
         function( success ) {
           $scope.story = success.data;
@@ -18,6 +20,18 @@ export default angular.module( 'campfire' ).controller(
         }
       );
 
+      $scope.previousCard = function() {
+        if ( $scope.storyIndex > 0 ) {
+          $scope.storyIndex--;
+        }
+      };
+
+      $scope.nextCard = function() {
+        if ( $scope.storyIndex < $scope.plotDeviceDisplayed.length - 1 ) {
+          $scope.storyIndex++;
+        }
+      };
+
       $scope.chooseInput = function( userInput ) {
         var filterOptions = {
           arrayToFilter: $scope.story.plot_devices,
@@ -28,6 +42,7 @@ export default angular.module( 'campfire' ).controller(
 
         if ( nextDevice ) {
           $scope.plotDeviceDisplayed.push( nextDevice );
+          $scope.storyIndex = $scope.plotDeviceDisplayed.length - 1;
         }
         else {
           console.log( 'The next text could not be found.' );

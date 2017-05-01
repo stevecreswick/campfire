@@ -10,16 +10,7 @@
     <div ng-if="plotDevice.user_inputs.length > 0">
       <p>User Options</p>
       <div ng-repeat="userInput in plotDevice.user_inputs">
-
-      <show-user-input></show-user-input>
-
-        <!-- <div ng-click="previewDevice()">
-          <h5>Preview</h5>
-        </div>
-
-        <div class="preview-plot-device" ng-if="previewing">
-          {{ successDevice.selected.message }}
-        </div> -->
+        <show-user-input></show-user-input>
       </div>
     </div>
 
@@ -30,6 +21,7 @@
     <h1>Editing</h1>
     <input type="text" ng-model="editingDevice.title"></input>
     <input type="text" ng-model="editingDevice.message"></input>
+    
     <a ng-click="updateDevice()">
       Save
     </a>

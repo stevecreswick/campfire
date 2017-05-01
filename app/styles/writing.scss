@@ -1,0 +1,29 @@
+.story {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  .edit-section {
+    width: calc(50% - 8px);
+    display: inline-block;
+
+    .editing-story {
+      width: 100%;
+
+      .story-snippet {
+        width: 100%;
+        background: white;
+        border: 2px solid blue;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .preview-section {
+    width: calc(50% - 8px);
+    display: inline-block;
+    background-color: orange;
+  }
+}

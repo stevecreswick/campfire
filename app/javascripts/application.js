@@ -7,6 +7,8 @@ import indexTemplate from 'html-loader!./../index.html'
 import showTemplate from 'html-loader!./templates/show.html'
 import writingTemplate from 'html-loader!./templates/write.html'
 import editStoryTemplate from 'html-loader!./templates/edit.html'
+import authorTemplate from 'html-loader!./templates/author.html'
+import authorsTemplate from 'html-loader!./templates/authors.html'
 
 export default angular.module(
   'campfire',
@@ -39,6 +41,20 @@ export default angular.module(
           '/:username/:story_id/edit',
           {
             template: editStoryTemplate
+          }
+        );
+
+        $routeProvider.when(
+          '/authors/:username',
+          {
+            template: authorTemplate
+          }
+        );
+
+        $routeProvider.when(
+          '/authors',
+          {
+            template: authorsTemplate
           }
         );
 

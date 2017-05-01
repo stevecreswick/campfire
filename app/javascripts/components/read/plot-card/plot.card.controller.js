@@ -1,5 +1,5 @@
 export default angular.module( 'campfire' ).controller(
-  'PlotDeviceController',
+  'PlotCardController',
   [
     '$scope', '$rootScope', 'PlotDevice', '$routeParams', '$filter',
     function( $scope, $rootScope, PlotDevice, $routeParams, $filter ) {

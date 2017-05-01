@@ -1,11 +1,24 @@
 <div ng-if="currentUser">
-  <h3>Title</h3>
-  <input type="text" ng-model="newStory.title" placeholder="A Tale of Two Kitties..."></input>
 
-  <h3>Synopsis</h3>
-  <input type="text" ng-model="newStory.description" placeholder="Description"></input>
+  <div class="input-form">
+    <div class="input-group">
+      <div class="input-title">Title</div>
+      <div class="input-container">
+        <input type="text" ng-model="newStory.title" placeholder="A Tale of Two Kitties..."></input>
+      </div>
+    </div>
 
-  <span>You can change these later.</span>
+    <div class="input-group">
+      <div class="input-title">Synopsis</div>
+      <div class="input-container">
+        <textarea type="text" ng-model="newStory.description" placeholder="Description"></textarea>
+      </div>
+    </div>
 
-  <button type="button" name="button" ng-click="createNewStory()"></button>
+    <div class="input-group">
+      <div class="input-container right">
+        <div class="button" ng-click="createNewStory()">Submit</div>
+      </div>
+    </div>
+  </div>
 </div>

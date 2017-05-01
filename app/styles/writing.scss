@@ -1,3 +1,20 @@
+.writing-page {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: blue;
+  max-width: 900px;
+  margin: 0 auto;
+  background: orange;
+
+  .new-story,
+  .edit-story {
+    margin: 0 12px;
+    width: calc(50% - 24px);
+  }
+}
+
 .story {
   margin-bottom: 30px;
   display: flex;

@@ -1,15 +1,10 @@
 .story-view {
-  max-width: 1200px;
-  padding: 0 20px;
-  margin: 0 auto;
-
   .story-inner-container {
     max-width: 900px;
     margin: 0 auto;
 
     .story-controls {
       height: 60px;
-      // background: blue;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;

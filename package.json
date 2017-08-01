@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --env production",
     "start": "webpack --env production",
-    "postinstall": "npm install && npm build",
+    "postinstall": "npm build",
     "develop": "nodemon --watch webpack.config.js --exec \"webpack-dev-server --env development\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

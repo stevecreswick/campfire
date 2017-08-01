@@ -1,14 +1,92 @@
 body {
-  background: cornflowerblue;
-}
+  background: ghostwhite;
 
-a {
-  color: black;
-  text-decoration: none;
+  * {
+    box-sizing: border-box;
+  }
 
-  &:visited,
-  &:hover {
+  a {
     color: black;
     text-decoration: none;
+
+    &:visited,
+    &:hover {
+      color: black;
+      text-decoration: none;
+    }
   }
+
+  div {
+    box-sizing: border-box;
+  }
+
+  ul {
+    &.vertical-list {
+      padding: 0;
+
+      li {
+        display: block;
+        padding: 0.6em;
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+
+.page-container {
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+}
+
+.input-form {
+  padding: 0 1em 1em 1em;
+
+  .input-group {
+    margin: 1em 0;
+
+    .input-title {
+      margin: 0;
+      padding: 0.2em;
+    }
+
+    .input-container {
+      input[type=text],
+      textarea {
+       padding: 0.6em;
+       width: 100%;
+       font-size: 1.2em;
+      }
+    }
+  }
+}
+
+
+
+.button {
+  width: 160px;
+  height: 42px;
+  font-size: 1.2em;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #efefef;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
 }

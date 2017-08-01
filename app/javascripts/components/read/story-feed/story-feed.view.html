@@ -1,0 +1,14 @@
+<div class="story-feed">
+  <div class="story-container story-card" ng-repeat="story in stories">
+    <div class="author">
+      <a href="/authors/{{ story.author }}">
+        {{ story.author }}
+      </a>
+    </div>
+    <a ng-href="/stories/{{ story.id }}">
+      <div class="date">{{ story.date | date:'MMMM d, y' }}</div>
+      <h2 class="story-title">{{ story.title }}</h2>
+      <p class="story-description">{{ story.description }}</p>
+    </a>
+  </div>
+</div>

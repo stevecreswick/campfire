@@ -1,8 +1,46 @@
+// $bg-img: url('url!./assets/images/campfire.png');
+li {
+  display: inline-block;
+}
+
 .navbar {
-  background-color: yellow;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #ef5350;
+  position: relative;
+  top: 0;
+  height: 64px;
+  margin: -8px -8px 0 -8px;
 
-  li {
-    display: inline-block;
+  ul {
+    li {
+      margin: 0 16px;
+    }
+  }
 
+  .logo-container {
+    width: 200px;
+    .logo {
+      height: 30px;
+      width: 30px;
+      // background-image: $bg-img;
+    }
+  }
+
+  .link-container {
+    width: calc(100% - 500px);
+  }
+
+  .user-container {
+    width: 300px;
+
+    li {
+      &:first-of-type {
+        margin-right: 16px;
+      }
+    }
   }
 }

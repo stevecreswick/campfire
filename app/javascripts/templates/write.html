@@ -1,12 +1,18 @@
-<div ng-controller="WritingController">
-  <h1>new post</h1>
+<div class="writing-page" ng-controller="WritingController">
 
-  <h2>New</h2>
-    <h3>Create a new story</h3>
+  <div class="new-story">
+    <h2>Write a New Story</h3>
     <new-story></new-story>
+  </div>
 
-  <h2>Edit</h2>
-  <div ng-if="currentUser" ng-repeat="story in userStories">
-    {{ story.title }}
+  <div class="edit-story">
+    <h2>Edit a Story</h3>
+    <ul class="user-stories vertical-list">
+      <li ng-if="currentUser" ng-repeat="story in userStories">
+        <a ng-href="/{{ currentUser.username }}/{{ story.id }}/edit">
+          {{ story.title }}
+        </a>
+      </li>
+    </ul>
   </div>
 </div>

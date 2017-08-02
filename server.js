@@ -1,16 +1,11 @@
-const path = require("path"),
-    express = require("express");
+var path = require('path');
+var express = require('express');
 
-const BUILD_DIR = path.join( __dirname, 'build' ),
-    PORT = 8080,
-    app = express();
+var app = express();
 
-//Serving the files on the dist folder
-app.use( express.static( BUILD_DIR ) );
+app.use(express.static(path.join(__dirname, 'dist')));
+app.set('port', process.env.PORT || 8080);
 
-//Send index.html when the user access the web
-app.get( '*', function ( req, res ) {
-  res.sendFile( path.join( BUILD_DIR, 'index.html' ) );
-} );
-
-app.listen( PORT );
+var server = app.listen(app.get('port'), function() {
+  console.log('listening on port ', server.address().port);
+});

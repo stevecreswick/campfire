@@ -10,7 +10,7 @@ var BUILD_DIR = path.join( __dirname, 'build' );
 
 var environment = options.environment || options.e || process.env.NODE_ENV || 'staging';
 
-var currentEnvironment = environments[ environment ];
+var currentEnvironment = environments[ environment ] || {};
 
 console.log(currentEnvironment);
 
@@ -33,7 +33,7 @@ var server = app.listen(app.get('port'), function() {
 
 app.post( '/environment', function( request, response ) {
   response.set( 'Cache-Control', 'no-cache' );
-  response.send( ENV_OBJECT );
+  response.send( currentEnvironment );
 } );
 
 //Send index.html when the user access the web

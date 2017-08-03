@@ -21,12 +21,15 @@ export default angular.module( 'campfire' ).controller(
       $http.post( '/environment' ).then(
         function( response ) {
           var environment = response.data;
-          var apiUrl = environment.apiUrl || 'localhost:3000';
+          $rootScope.apiUrl = location.protocol + ( environment.apiUrl || '//localhost:3000' );
 
-          console.log(apiUrl);
+          console.log( $rootScope.apiUrl );
         },
         function( reason ) {
+          $rootScope.apiUrl = location.protocol + '//localhost:3000';
           console.log( ' reason ', reason );
+
+          console.log( $rootScope.apiUrl );
         }
       );
 

@@ -19,6 +19,14 @@ var app = express();
 app.use(express.static(BUILD_DIR));
 app.set('port', process.env.PORT || 8080);
 
+app.use( function( request, response, next ) {
+  response.set( 'Access-Control-Allow-Origin', '*' );
+  response.set( 'Access-Control-Allow-Headers', 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With' );
+  response.set( 'Access-Control-Allow-Methods', 'POST, GET, OPTIONS' );
+
+  next();
+} );
+
 var server = app.listen(app.get('port'), function() {
   console.log('listening on port ', server.address().port);
 });

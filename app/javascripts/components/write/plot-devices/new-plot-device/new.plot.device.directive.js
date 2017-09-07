@@ -8,6 +8,7 @@ export default angular.module( 'campfire' ).directive(
       return {
         restrict: 'E',
         template: newPlotDeviceTemplate,
+        replace: "true",
         controller: 'NewPlotDeviceController',
         link: function( scope, element, attrs ) {
           $rootScope.$on( 'newPlotDeviceCreated', function( event, data ) {

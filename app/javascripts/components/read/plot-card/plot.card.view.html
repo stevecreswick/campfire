@@ -1,11 +1,23 @@
 <div class="plot-card">
+  <div ng-if="plotDevice.inputChosen">
+    <!-- <p class="plot-card-input">
+      You chose: {{ plotDevice.inputChosen.title }}
+    </p> -->
+    <p class="plot-card-input">
+      {{ plotDevice.inputChosen.message }}
+    </p>
+    <p class="plot-card-input">
+      {{ plotDevice.inputChosen.success_message }}
+    </p>
+  </div>
+
   <p>{{ plotDevice.message }}</p>
 
-  <ul ng-if="$last" class="input-list">
-    <li ng-repeat="userInput in plotDevice.user_inputs | limitTo:5"
-        ng-click="chooseInput( userInput )"
+  <ul ng-if="$last || backTracking" class="input-list">
+    <li ng-repeat="userInput in plotDevice.user_inputs | limitTo:5 track by $index"
+        ng-click="chooseInput( userInput, $index )"
         class="user-input">
-      <a href="#">
+      <a href="#" ng-class="{ 'input-chosen' : userInput.selected }">
         {{ $index + 1 }} - {{ userInput.title }}
       </a>
     </li>

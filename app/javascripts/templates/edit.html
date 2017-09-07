@@ -1,23 +1,27 @@
-<div ng-if="currentUser" ng-controller="EditStoryController" class="story">
-  <div ng-if="editingStory" class="edit-section">
-    Editing: {{ editingStory.title }}
-    <div class="editing-story">
-      <div ng-repeat="plotDevice in editingStory.plot_devices">
-        <edit-plot-device state="authoring"></edit-plot-device>
-      </div>
+<div ng-if="currentUser"
+     ng-controller="EditStoryController"
+     class="edit-story">
+  <div ng-if="editingStory" class="edit-container">
+    <h3>
+      Editing: {{ editingStory.title }}
+    </h3>
+
+    <div class="edit-card" ng-repeat="plotDevice in editingStory.plot_devices">
+      <edit-plot-device state="authoring"></edit-plot-device>
     </div>
-    <div class="add-snippet">
-      <a href="#" ng-click="toggleNewSnippet()">Add A New Text Block</a>
+
+    <div class="add-plot-card">
+      <div class="user-prompt" ng-if="!addingSnippet">
+        <a href="#" class="edit-text" ng-click="toggleNewSnippet()">
+          Add A New Text Block
+        </a>
+      </div>
 
       <new-plot-device ng-if="addingSnippet"></new-plot-device>
-      <a href="#" ng-if="addingSnippet" ng-click="toggleNewSnippet()">
-        Cancel
-      </a>
     </div>
   </div>
-  <div class="preview-section">
-    Preview
 
-    <preview-story></preview-story>
+  <div class="preview-container">
+    <preview-story disable-keyup></preview-story>
   </div>
 </div>

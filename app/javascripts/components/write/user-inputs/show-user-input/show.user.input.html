@@ -1,17 +1,17 @@
 <div class="show-user-input" ng-if="!writing">
-  <h5>
+  <h4 class="user-input-title">
     {{ $index + 1 }} - {{ userInput.title }}
     <span ng-click="editUserInput()">
-      <a href="#">
+      <a href="#" class="edit-text">
         Edit
       </a>
     </span>
-  </h5>
+  </h4>
   <p>
     {{ userInput.message }}
   </p>
-  <div ng-click="previewDevice()">
-    <h5>{{ previewing ? 'Hide' : 'Click to see next text block' }}</h5>
+  <div class="preview-device" ng-click="previewDevice()">
+    <a href="#" class="edit-text">{{ previewing ? 'Hide' : 'Where does this lead?' }}</a>
   </div>
 
   <div class="preview-plot-device" ng-if="previewing">
@@ -26,14 +26,8 @@
   <h5>Message</h5>
   <input type="text" ng-model="editingInput.message"></input>
 
-  <!-- Add check box to see if a stat check is needed -->
-  <!-- Pass -->
-  <!-- <input type="text" ng-model="newUserInput.passValue"></input> -->
-
-  <!-- Success -->
-  <!-- Message if Chosen -->
   <h5>Success Message</h5>
-  <input type="text" ng-model="editingInput.successMessage"></input>
+  <input type="text" ng-model="editingInput.success_message"></input>
 
   <!-- Goes to What Snippet? -->
   <div>

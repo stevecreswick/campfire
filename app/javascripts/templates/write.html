@@ -8,7 +8,7 @@
   <div class="edit-story">
     <h2>Edit a Story</h3>
     <ul class="user-stories vertical-list">
-      <li ng-if="currentUser" ng-repeat="story in userStories">
+      <li ng-if="currentUser" ng-repeat="story in userStories" class="story-list-item">
         <a ng-href="/{{ currentUser.username }}/{{ story.id }}/edit">
           {{ story.title }}
         </a>

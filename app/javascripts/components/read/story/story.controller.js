@@ -1,24 +1,25 @@
 export default angular.module( 'campfire' ).controller(
   'StoryController',
   [
-    '$scope', 'StoryFeed', '$routeParams', '$filter', '$document',
-    function( $scope, StoryFeed, $routeParams, $filter, $document ) {
+    '$scope', 'StoryFeed', '$routeParams', '$filter', '$document', '$attrs', 'Operation',
+    function( $scope, StoryFeed, $routeParams, $filter, $document, $attrs, Operation ) {
+      const STORY_URL = '/stories/' + $routeParams[ 'story_id' ];
 
-      $scope.storyIndex = 0;
-
-      StoryFeed.getStory( $routeParams[ 'story_id' ] ).then(
-        function( success ) {
-          $scope.story = success.data;
+      Operation.query( STORY_URL ).then(
+        function( response ) {
+          $scope.story = response.data;
 
           if ( $scope.story ) {
             $scope.plotDeviceDisplayed = [];
             $scope.plotDeviceDisplayed.push( $scope.story.plot_devices[ 0 ] );
           }
         },
-        function( error ) {
-          console.log( error );
+        function( reason ) {
+          console.error( reason );
         }
       );
+
+      $scope.storyIndex = 0;
 
       $scope.previousCard = function() {
         if ( $scope.storyIndex > 0 ) {

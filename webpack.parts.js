@@ -58,6 +58,7 @@ exports.setupCSS = function( paths ) {
 };
 
 exports.loadCSS = function( paths ) {
+  console.log('loading css');
   return {
     module: {
       rules: [
@@ -70,6 +71,22 @@ exports.loadCSS = function( paths ) {
     }
   };
 };
+
+exports.loadImages = function( paths ) {
+  console.log('loading images');
+  return {
+    module: {
+      rules: [
+        {
+          test: /\.scss$/,
+          include: paths,
+          use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+        }
+      ]
+    }
+  };
+};
+
 
 exports.extractCSS = function( paths ) {
   return {
@@ -106,27 +123,27 @@ exports.purifyCSS = function( paths ) {
 
         // Walk through only html files within node_modules. It
         // picks up .js files by default!
-        resolveExtensions: ['.html']
+        resolveExtensions: [ '.html' ]
       })
     ]
   };
 };
 
-exports.htmlLoader = function() {
-  return {
-    module: {
-      loaders: [
-        {
-          test: /\.js$/,
-          loaders: ['ng-annotate','babel','required?import[]=angular'],
-          exclude: /node_modules/
-        },
-        {
-          test: /\.html$/,
-          loader: "ngtemplate!html",
-          exclude: /node_modules/
-        }
-      ]
-    }
-  }
-};
+// exports.htmlLoader = function() {
+//   return {
+//     module: {
+//       loaders: [
+//         {
+//           test: /\.js$/,
+//           loaders: ['ng-annotate','babel','required?import[]=angular'],
+//           exclude: /node_modules/
+//         },
+//         {
+//           test: /\.html$/,
+//           loader: "ngtemplate!html",
+//           exclude: /node_modules/
+//         }
+//       ]
+//     }
+//   }
+// };

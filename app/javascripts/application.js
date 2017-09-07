@@ -65,4 +65,6 @@ export default angular.module(
         $locationProvider.html5Mode( true ).hashPrefix( '!' );
       }
   ]
-);
+).run( function( $rootScope  ) {
+
+} );

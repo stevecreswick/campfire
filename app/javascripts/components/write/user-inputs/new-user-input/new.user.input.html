@@ -1,65 +1,90 @@
 <div class="new-plot-device" ng-if="successDevices.length > 0">
   <div ng-if="!writing" ng-click="toggleInput()">
-    <h5>
-      <a href="#">
+    <div class="user-prompt">
+      <a href="#" class="edit-text">
         Add a user input
       </a>
-    </h5>
+    </div>
   </div>
 
   <div class="new-user-input" ng-if="writing">
-    <h5>Title</h5>
-    <input type="text" ng-model="newUserInput.title"></input>
-
-    <h5>Message</h5>
-    <input type="text" ng-model="newUserInput.message"></input>
-
-    <!-- Add check box to see if a stat check is needed -->
-    <!-- Pass -->
-    <!-- <input type="text" ng-model="newUserInput.passValue"></input> -->
-
-    <!-- Success -->
-    <!-- Message if Chosen -->
-    <h5>Success Message</h5>
-    <input type="text" ng-model="newUserInput.successMessage"></input>
-
-    <!-- Goes to What Snippet? -->
-    <div>
-      <h5>Jump To:</h5>
-      <!-- Add ability to create a new snippet -->
-      <!-- On Successful Save, Set as the Next Device -->
-      <!-- <input type="text" ng-model="newUserInput.successId"></input> -->
-      <select ng-model="successDevice.selected"
-              ng-options="nextDevice.title for nextDevice in successDevices">
-      </select>
-      <!-- Write a Filter that strips out the current plot device -->
-
-      <div ng-click="previewDevice()">
-        <h5>Preview</h5>
+    <div class="input-form">
+      <div class="input-group">
+        <div class="input-title">
+          Action
+        </div>
+        <div class="input-container">
+          <input type="text" ng-model="newUserInput.title"></input>
+        </div>
       </div>
 
-      <div class="preview-plot-device" ng-if="previewing">
-        {{ successDevice.selected.message }}
+      <div class="input-group">
+        <div class="input-title">
+          Action Description
+        </div>
+        <div class="input-container">
+          <textarea type="text" ng-model="newUserInput.message"></textarea>
+        </div>
       </div>
 
-      <!-- Need to Make Option to add New Input -->
+      <div class="input-group">
+        <div class="input-title">
+          Action Result
+        </div>
+        <div class="input-container">
+          <textarea type="text" ng-model="newUserInput.success_message"></textarea>
+        </div>
+      </div>
 
-      <!-- Failure -->
-      <!-- <input type="text" ng-model="newUserInput.failureMessage"></input>
-      <input type="text" ng-model="newUserInput.failureId"></input> -->
-    </div>
+      <div class="input-group">
+        <div class="input-title">
+          Jump To:
+        </div>
+        <div class="input-container">
+          <select ng-model="successDevice.selected"
+                  ng-options="nextDevice.title for nextDevice in successDevices">
+          </select>
+        </div>
+      </div>
 
-    <div ng-if="writing" ng-click="toggleInput()">
-      <a href="#">
-        Cancel
-      </a>
+      <div class="next-card-container">
+        <div ng-click="previewDevice()">
+          <a href="#" class="edit-text">
+            {{ previewing ? 'Hide Preview' : 'Where does this lead?' }}
+          </a>
+        </div>
+
+        <div class="preview-text-container">
+          <p class="preview-plot-device" ng-if="previewing">
+            {{ successDevice.selected.message }}
+          </p>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <div class="half-input-container">
+          <div class="button" ng-if="writing" ng-click="toggleInput()">
+            <a href="#">
+              Cancel
+            </a>
+          </div>
+        </div>
+
+        <div class="half-input-container">
+          <div class="button" ng-if="writing" ng-click="createNewUserInput()">
+            <a href="#">
+              Save
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+
     </div>
-    <a href="#" ng-click="createNewUserInput()">
-      Save
-    </a>
   </div>
 </div>
 
-<div ng-if="successDevices.length < 1">
-  There are no text blocks to send the reader to.
+<div class="warning-text" ng-if="successDevices.length < 1">
+  The reader has nowhere to go.
 </div>

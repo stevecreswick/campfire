@@ -71,7 +71,24 @@
 
     a {
       font-weight: 800;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
+  }
+}
+
+.plot-card {
+  .plot-card-input {
+    font-size: 0.9em;
+    color: #000000;
+    opacity: 0.5;
+    padding: 8px 20px;
+  }
+}
+
+.story-container {
+  color: black;
+  
+  &.liked {
+    color: red;
   }
 }

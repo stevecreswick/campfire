@@ -1,14 +1,18 @@
-<div class="story-snippet">
+<div class="edit-card-container">
   <div ng-if="state === 'authoring'">
-    <p> {{ plotDevice.title }}</p>
-    <h4>{{ plotDevice.message }}</h4>
+    <div class="title-container">
+      <h3> {{ plotDevice.title }}</h3>
 
-    <a href="#" ng-click="toggleEdit()">
-      <i>edit this block</i>
-    </a>
+      <a href="#" ng-click="toggleEdit()" class="edit-text">
+        <span>Edit</span>
+      </a>
+    </div>
+
+    <div class="plot-text">
+      <p>{{ plotDevice.message }}</p>
+    </div>
 
     <div ng-if="plotDevice.user_inputs.length > 0">
-      <p>User Options</p>
       <div ng-repeat="userInput in plotDevice.user_inputs">
         <show-user-input></show-user-input>
       </div>
@@ -18,15 +22,38 @@
   </div>
 
   <div ng-if="state === 'editing'">
-    <h1>Editing</h1>
-    <input type="text" ng-model="editingDevice.title"></input>
-    <input type="text" ng-model="editingDevice.message"></input>
-    
-    <a ng-click="updateDevice()">
-      Save
-    </a>
-    <a href="#" ng-click="toggleEdit()">
-      Cancel
-    </a>
+    <div class="input-form">
+      <div class="input-group">
+        <div class="input-container">
+          <div class="input-title">Title</div>
+          <input type="text" ng-model="editingDevice.title"></input>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <div class="input-container">
+          <div class="input-title">Synopsis</div>
+          <textarea type="text" ng-model="editingDevice.message"></textarea>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <div class="half-input-container">
+          <div class="button" ng-click="toggleEdit()">
+            <a href="#">
+              Cancel
+            </a>
+          </div>
+        </div>
+
+        <div class="half-input-container">
+          <div class="button" ng-click="updateDevice()">
+            <a href="#">
+              Save
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

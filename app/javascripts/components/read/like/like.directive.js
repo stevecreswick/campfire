@@ -1,14 +1,15 @@
-import plotCardTemplate from 'html-loader!./plot.card.view.html'
+import likeTemplate from 'html-loader!./like.view.html'
 
 export default angular.module( 'campfire' ).directive(
-  'plotCard',
+  'like',
   [
     function() {
       return {
         restrict: 'E',
-        template: plotCardTemplate,
-        controller: 'PlotCardController',
+        template: likeTemplate,
+        controller: 'LikeController',
         link: function( scope, element, attrs ) {
+          console.log('like directive');
           // var chosenIndex = scope.inputsChosen[ scope.storyIndex - 1 ];
           // var userInputs = scope.plotDeviceDisplayed[ scope.storyIndex ].user_inputs;
           //

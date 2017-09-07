@@ -1,10 +1,39 @@
-<div class="new-plot-device">
-  <h3>Title</h3>
-  <input type="text" ng-model="newPlotDevice.title"></input>
-  <h3>Message</h3>
-  <textarea ng-model="newPlotDevice.message"></textarea>
+<div class="plot-card-form input-form">
+  <div class="input-group">
+    <div class="input-title">
+      Title
+    </div>
 
-  <a href="#" ng-click="createNewSnippet()">
-    Save
-  </a>
+    <div class="input-container">
+      <input type="text" ng-model="newPlotDevice.title"></input>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="input-title">
+      Message
+    </div>
+
+    <div class="input-container">
+      <textarea ng-model="newPlotDevice.message"></textarea>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <div class="half-input-container">
+      <div class="button" ng-click="toggleNewSnippet()">
+        <a href="#">
+          Cancel
+        </a>
+      </div>
+    </div>
+    
+    <div class="half-input-container">
+      <div class="button" ng-click="createNewSnippet()">
+        <a href="#">
+          Save
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

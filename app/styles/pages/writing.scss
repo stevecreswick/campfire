@@ -1,0 +1,111 @@
+.writing-page {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+
+  .new-story,
+  .edit-story {
+    margin: 0 1em;
+    width: calc(50% - 2em);
+  }
+}
+
+.story-list-item {
+  a {
+    &:hover {
+      border-bottom: 2px solid red;
+    }
+  }
+}
+
+.edit-story {
+  margin-bottom: 30px;
+  @include flex-container(row, nowrap, flex-start, center);
+
+  .edit-container {
+    width: calc(50% - 8px);
+    display: inline-block;
+    padding: 0 20px;
+
+    .edit-card {
+      width: 100%;
+
+      .edit-card-container {
+        width: 100%;
+        padding: 20px;
+        background: white;
+        margin-bottom: 10px;
+
+        .title-container {
+          @include flex-container(row, nowrap, center, space-between);
+        }
+      }
+    }
+
+    .add-plot-card {
+      width: 100%;
+      @include flex-container(row, nowrap, center, center);
+
+      .plot-card-form {
+        width: 100%;
+      }
+    }
+  }
+
+  .preview-container {
+    width: calc(50% - 8px);
+    display: inline-block;
+  }
+}
+
+.new-plot-device {
+  .user-prompt {
+    height: 3em;
+  }
+}
+
+.new-user-input {
+
+}
+
+.preview-text-container {
+  text-align: left;
+}
+
+.preview-device {
+  text-align: right;
+}
+body {
+  .user-prompt {
+    height: 140px;
+    width: calc(100% - 40px);
+    margin: 20px;
+
+    // background: #efefef;
+    @include flex-container(row, nowrap, center, center);
+
+    a {
+      // color: blue;
+    }
+  }
+}
+
+.input-chosen {
+  color: red;
+}
+
+.next-card-container {
+  text-align: right;
+}
+
+.show-user-input {
+  p {
+    padding: 0;
+    font-size: 0.8em;
+    opacity: 0.7;
+
+  }
+}

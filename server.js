@@ -8,11 +8,9 @@ var options = minimist( process.argv.slice( 2 ) );
 
 var BUILD_DIR = path.join( __dirname, 'build' );
 
-var environment = options.environment || options.e || process.env.NODE_ENV || 'staging';
+var environment = options.environment || options.e || process.env.NODE_ENV || 'development';
 
 var currentEnvironment = environments[ environment ] || {};
-
-console.log(currentEnvironment);
 
 var app = express();
 
@@ -35,8 +33,6 @@ app.post( '/environment', function( request, response ) {
   response.set( 'Cache-Control', 'no-cache' );
   response.send( currentEnvironment );
 } );
-
-//Send index.html when the user access the web
 
 app.get( '*', function ( req, res ) {
   res.sendFile( path.join( BUILD_DIR, 'index.html' ) );

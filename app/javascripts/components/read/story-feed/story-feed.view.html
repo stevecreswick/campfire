@@ -1,8 +1,8 @@
 <div class="story-feed">
   <div class="story-container story-card" ng-repeat="story in stories">
     <div class="author">
-      <a href="/authors/{{ story.author }}">
-        {{ story.author }}
+      <a href="/authors/{{ story.author.username }}">
+        {{ story.author.username }}
       </a>
     </div>
     <a ng-href="/stories/{{ story.id }}">
@@ -10,5 +10,10 @@
       <h2 class="story-title">{{ story.title }}</h2>
       <p class="story-description">{{ story.description }}</p>
     </a>
+    <div class="" ng-if="currentUser.id === story.author.id">
+      <a href="/{{ currentUser.username }}/{{ story.id }}/edit" class="edit-text">
+        Edit
+      </a>
+    </div>
   </div>
 </div>

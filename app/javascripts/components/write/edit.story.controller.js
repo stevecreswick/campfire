@@ -1,16 +1,16 @@
 export default angular.module( 'campfire' ).controller(
   'EditStoryController',
   [
-    '$scope', '$rootScope', '$routeParams', 'StoryFeed',
-    function( $scope, $rootScope, $routeParams, StoryFeed ) {
-      const storyId = $routeParams[ 'story_id' ];
+    '$scope', '$rootScope', '$routeParams', 'Operation',
+    function( $scope, $rootScope, $routeParams, Operation ) {
+      const STORY_URL = '/stories/' + $routeParams[ 'story_id' ];
 
-      StoryFeed.getStory( storyId ).then(
-        function( success ) {
-          $scope.editingStory = success.data;
+      Operation.query( STORY_URL ).then(
+        function( response ) {
+          $scope.editingStory = response.data;
         },
-        function( error ) {
-          console.log( error );
+        function( reason ) {
+          console.error( reason );
         }
       );
 

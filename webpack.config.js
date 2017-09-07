@@ -29,18 +29,24 @@ const common = merge(
     },
     module: {
       loaders: [
-        {
-          test: /\.html$/,
-          loader: 'html-loader'
-          // loader: 'ngtemplate?relativeTo=' + (path.resolve(__dirname, './app')) + '/!html'
-        }
+        // {
+        //   test: /\.html$/,
+        //   loader: 'html-loader'
+        //   // loader: 'ngtemplate?relativeTo=' + (path.resolve(__dirname, './app')) + '/!html'
+        // }
       ]
     },
     plugins: [
       new FriendlyErrorsWebpackPlugin(),
       new HtmlWebpackPlugin( {
         title: 'Campfire',
-        template: 'index.ejs'
+        template: 'index.ejs',
+        meta: [
+          {
+            name: 'description',
+            content: 'A better default template for html-webpack-plugin.'
+          }
+        ]
       } )
     ]
   }
@@ -48,8 +54,6 @@ const common = merge(
 
 
 module.exports = function( env ) {
-  console.log( 'Environment: ', env );
-
   if ( env === 'production' ) {
     return merge(
       common,

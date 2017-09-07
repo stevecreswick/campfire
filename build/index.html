@@ -2,15 +2,15 @@
 <html ng-app="campfire">
   <head>
     <meta charset="utf-8">
+
+    <!--  -->
+
     <title>Campfire</title>
     <base href='/'>
-    <title>Webpack demo</title>
-  <link href="app.css" rel="stylesheet"></head>
-  <body>
-    <h1>Yolo</h1>
-    <div ui-view>
-
-
-    </div>
-  <script src="/build/app.js" charset="utf-8"></script>
+    <title>Campfire</title>
+  </head>
+  <body ng-controller="ApplicationController">
+    <navbar ng-if="currentUser"></navbar>
+    <ng-view class="page-container"></ng-view>
+  <script type="text/javascript" src="app.js"></script></body>
 </html>

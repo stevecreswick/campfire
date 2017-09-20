@@ -1,6 +1,13 @@
-<div class="story-view">
+<div class="story-view" ng-if="story">
   <h1>{{ story.title }}</h1>
-  <like ng-if="story"></like>
+  <like ng-if="!userStory"></like>
+  <ul class="text-controls" ng-if="userStory">
+    <li>
+      <a href="/{{ currentUser.username }}/{{ story.id }}/edit">
+        Edit
+      </a>
+    </li>
+  </ul>
 
   <div class="story-inner-container">
     <div class="story-card-container">
